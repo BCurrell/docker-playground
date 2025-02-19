@@ -1,4 +1,8 @@
 :80 {
-        root * /usr/share/caddy
-        file_server
+	root * /usr/share/caddy
+	file_server
+}
+
+llm.{$BASE_URL:internal} {
+	reverse_proxy openwebui:8080
 }
