@@ -1,0 +1,21 @@
+network:
+  reverse-proxy:
+    driver: "bridge"
+
+services:
+  reverse-proxy:
+    container_name: "reverse-proxy"
+    image: "caddy:2-alpine"
+    restart: "unless-stopped"
+    cap_add:
+      - "NET_ADMIN"
+    networks:
+      - "reverse-proxy"
+    ports:
+      - "80:80/tcp"
+      - "443:443/tcp"
+      - "443:443/udp"
+    volumes:
+      - "./caddy/config:/config"
+      - "./caddy/data:/data"
+      - "./caddy/default_site:/usr/share/caddy:ro"
