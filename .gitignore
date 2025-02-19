@@ -6,6 +6,16 @@
 !docker-compose.yaml
 !docker-compose.*.yaml
 
+!.env.default
+!.env.example
+
+!/dolibarr/
+!/dolibarr/dolibarr/
+!/dolibarr/dolibarr/custom/
+!/dolibarr/dolibarr/documents/
+!/dolibarr/postgres/
+!/dolibarr/postgres/data
+
 !/ollama-openwebui/
 !/ollama-openwebui/ollama/
 !/ollama-openwebui/ollama/data/
@@ -13,7 +23,6 @@
 !/ollama-openwebui/openwebui/data/
 
 !/reverse-proxy/
-!/reverse-proxy/.env.example
 !/reverse-proxy/caddy/
 !/reverse-proxy/caddy/Caddyfile
 !/reverse-proxy/caddy/config/

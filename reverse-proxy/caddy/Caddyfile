@@ -6,3 +6,7 @@
 llm.{$BASE_URL:internal} {
 	reverse_proxy openwebui:8080
 }
+
+dolibarr.{$BASE_URL:internal} {
+	reverse_proxy dolibarr-dolibarr-1:80
+}
