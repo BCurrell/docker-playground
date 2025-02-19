@@ -1,4 +1,4 @@
-network:
+networks:
   reverse-proxy:
     driver: "bridge"
 
