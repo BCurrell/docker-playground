@@ -14,5 +14,8 @@
 
 !/reverse-proxy/
 !/reverse-proxy/caddy/
+!/reverse-proxy/caddy/Caddyfile
 !/reverse-proxy/caddy/config/
 !/reverse-proxy/caddy/data/
+!/reverse-proxy/caddy/default_site/
+!/reverse-proxy/caddy/default_site/index.html

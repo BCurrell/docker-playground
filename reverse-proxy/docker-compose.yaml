@@ -12,10 +12,12 @@ services:
     networks:
       - "reverse-proxy"
     ports:
+      - "127.0.0.1:2019:2019/tcp"
       - "80:80/tcp"
       - "443:443/tcp"
       - "443:443/udp"
     volumes:
+      - "./caddy/Caddyfile:/etc/caddy/Caddyfile"
       - "./caddy/config:/config"
       - "./caddy/data:/data"
       - "./caddy/default_site:/usr/share/caddy:ro"
