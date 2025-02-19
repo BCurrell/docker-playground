@@ -13,6 +13,7 @@
 !/ollama-openwebui/openwebui/data/
 
 !/reverse-proxy/
+!/reverse-proxy/.env.example
 !/reverse-proxy/caddy/
 !/reverse-proxy/caddy/Caddyfile
 !/reverse-proxy/caddy/config/

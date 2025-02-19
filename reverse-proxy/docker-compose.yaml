@@ -1,5 +1,6 @@
 networks:
   reverse-proxy:
+    name: "reverse-proxy"
     driver: "bridge"
 
 services:
@@ -7,6 +8,7 @@ services:
     container_name: "reverse-proxy"
     image: "caddy:2-alpine"
     restart: "unless-stopped"
+    env_file: ".env"
     cap_add:
       - "NET_ADMIN"
     networks:

@@ -1,33 +1,35 @@
 networks:
+  reverse-proxy:
+    external: true
   ollama-openwebui:
-    driver: bridge
+    name: "ollama-openwebui"
+    driver: "bridge"
 
 services:
   ollama:
-    container_name: ollama
-    image: ollama/ollama:rocm
-    restart: no
+    container_name: "ollama"
+    image: "ollama/ollama:rocm"
+    restart: "no"
     networks:
-      - ollama-openwebui
+      - "ollama-openwebui"
     volumes:
-      - ./ollama/data:/root/.ollama
+      - "./ollama/data:/root/.ollama"
     devices:
-      - /dev/kfd
-      - /dev/dri
+      - "/dev/kfd"
+      - "/dev/dri"
     environment:
-      - OLLAMA_ROCM=1
+      - "OLLAMA_ROCM=1"
 
   openwebui:
-    container_name: openwebui
-    image: ghcr.io/open-webui/open-webui:main
-    restart: no
+    container_name: "openwebui"
+    image: "ghcr.io/open-webui/open-webui:main"
+    restart: "no"
     depends_on:
-      - ollama
+      - "ollama"
     networks:
-      - ollama-openwebui
+      - "reverse-proxy"
+      - "ollama-openwebui"
     volumes:
-      - ./openwebui/data:/app/backend/data
+      - "./openwebui/data:/app/backend/data"
     environment:
-      - OLLAMA_BASE_URL=http://ollama:11434
-    ports:
-      - 127.0.0.1:5561:8080
+      - "OLLAMA_BASE_URL=http://ollama:11434"
