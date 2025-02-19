@@ -7,7 +7,6 @@
 !docker-compose.*.yaml
 
 !.env.default
-!.env.example
 
 !/dolibarr/
 !/dolibarr/dolibarr/
