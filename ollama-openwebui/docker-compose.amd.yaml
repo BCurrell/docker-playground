@@ -1,0 +1,33 @@
+networks:
+  ollama-openwebui:
+    driver: bridge
+
+services:
+  ollama:
+    container_name: ollama
+    image: ollama/ollama:rocm
+    restart: no
+    networks:
+      - ollama-openwebui
+    volumes:
+      - ./ollama/data:/root/.ollama
+    devices:
+      - /dev/kfd
+      - /dev/dri
+    environment:
+      - OLLAMA_ROCM=1
+
+  openwebui:
+    container_name: openwebui
+    image: ghcr.io/open-webui/open-webui:main
+    restart: no
+    depends_on:
+      - ollama
+    networks:
+      - ollama-openwebui
+    volumes:
+      - ./openwebui/data:/app/backend/data
+    environment:
+      - OLLAMA_BASE_URL=http://ollama:11434
+    ports:
+      - 127.0.0.1:5561:8080

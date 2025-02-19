@@ -1,0 +1,13 @@
+**
+
+!.git*
+!README.md
+
+!docker-compose.yaml
+!docker-compose.*.yaml
+
+!/ollama-openwebui/
+!/ollama-openwebui/ollama/
+!/ollama-openwebui/ollama/data/
+!/ollama-openwebui/openwebui/
+!/ollama-openwebui/openwebui/data/
